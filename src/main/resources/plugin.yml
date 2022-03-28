@@ -1,0 +1,4 @@
+name: AincradPK
+version: 1.0
+main: io.github.frostyfunta.aincradpk.AincradPK
+api-version: 1.18

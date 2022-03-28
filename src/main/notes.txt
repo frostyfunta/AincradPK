@@ -1,0 +1,3 @@
+list of classes I could use:
+
+org.bukkit.event.entity.EntityDeathEvent
