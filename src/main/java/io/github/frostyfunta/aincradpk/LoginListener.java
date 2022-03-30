@@ -13,7 +13,7 @@ public class LoginListener implements Listener {
     }
 
     private int checkStatus(Player player){
-        player.getName()
+        player.getName();
         return 0;
     }
 
