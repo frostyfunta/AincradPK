@@ -6,7 +6,7 @@ public class AincradPK extends JavaPlugin {
     @Override
     public void onEnable(){
         getLogger().info("onEnable is called !");
-        getServer().getPluginManager().registerEvents(new LoginListener(), this);
+        getServer().getPluginManager().registerEvents(new KillListener(), this);
     }
     @Override
     public void onDisable() {
