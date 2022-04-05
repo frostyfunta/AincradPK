@@ -14,6 +14,6 @@ public class KillListener implements Listener{
     }
 
     public void updateStatus(Player killed){
-        
+
     }
 }
