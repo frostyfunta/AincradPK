@@ -5,24 +5,44 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.HashMap;
+import java.util.UUID;
 
 public class LoginListener implements Listener {
+    PlayerHash map = new PlayerHash();
+    HashMap<UUID, Integer> remainingDays = map.getRemainingDays();
+
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        event.setJoinMessage("Welcome, " + event.getPlayer().getName());
-        checkStatus(event.getPlayer());
-
+        if(!remainingDays.containsKey(event.getPlayer().getUniqueId())) {
+            UUID playerID = event.getPlayer().getUniqueId();
+            remainingDays.put(playerID, 0);
+            Bukkit.getServer().getLogger().info(event.getPlayer().getName() + " has been added to the Hashmap.");
+        } else {
+            Bukkit.getServer().getLogger().info(event.getPlayer().getName() + " was already added to the Hashmap.");
+        }
     }
-
-    private int checkStatus(Player player){
-        String Playername = player.getName();
-        String PlayerID = player.getUniqueId().toString();
-        Bukkit.getServer().getLogger().info(("playername: " + Playername + "PlayerID: " + PlayerID));
+/*
+    public int checkStatus(Player player){
+        if(!remainingDays.containsKey(player.getUniqueId())){
+            Bukkit.getServer().getLogger().info("This player does not have a PVP-Status");
+            return 0;
+        } else {
+            int dayCycles = remainingDays.get(player.getUniqueId());
+            if(dayCycles == 0) {
+                Bukkit.getServer().getLogger().info("This player is green");
+                return 1;
+            }else if(dayCycles <= 72){
+                Bukkit.getServer().getLogger().info("This player is orange");
+                return 2;
+            }else if(dayCycles > 72){
+                Bukkit.getServer().getLogger().info("This player is red");
+                return 3;
+            }
+        }
         return 0;
     }
+*/
 
-    private int initializeStatus(Player player){
-        return 0;
-    }
 }

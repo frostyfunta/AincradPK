@@ -1,4 +1,4 @@
-package io.github.frostyfunta.aincradpk;
+package io.github.frostyfunta.aincradpk.scrap;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,6 +10,10 @@ public class KillListener implements Listener{
     public void onPlayerDeath(PlayerDeathEvent event){
         Player player = event.getEntity();
         Player killer = player.getKiller();
-        updateStatus(killer);
+        //killer.updateStatus(player);
+    }
+
+    public void updateStatus(Player killed){
+        
     }
 }

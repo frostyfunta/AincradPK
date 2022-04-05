@@ -1,4 +1,4 @@
-package io.github.frostyfunta.aincradpk.scheduled;
+package io.github.frostyfunta.aincradpk.scrap.scheduled;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
