@@ -1,5 +1,6 @@
-package io.github.frostyfunta.aincradpk;
+package io.github.frostyfunta.aincradpk.listener;
 
+import io.github.frostyfunta.aincradpk.PlayerHash;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

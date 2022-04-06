@@ -9,4 +9,13 @@ public class PlayerHash {
     public HashMap<UUID, Integer> getRemainingDays(){
         return remainingDays;
     }
+
+    public static int updateStatus(UUID player, int amountAdded, char timeUnit){
+        int before = remainingDays.get(player);
+        switch(timeUnit){
+            case 'd':
+                remainingDays.put(player, before + amountAdded);
+        }
+        return 1;
+    }
 }
