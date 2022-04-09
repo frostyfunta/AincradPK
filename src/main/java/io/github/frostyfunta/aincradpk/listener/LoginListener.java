@@ -7,18 +7,23 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.UUID;
 
 public class LoginListener implements Listener {
     PlayerHash map = new PlayerHash();
-    HashMap<UUID, Integer> remainingDays = map.getRemainingDays();
+    HashMap<UUID, String> remainingDays = map.getRemainingDays();
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         if(!remainingDays.containsKey(event.getPlayer().getUniqueId())) {
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
             UUID playerID = event.getPlayer().getUniqueId();
-            remainingDays.put(playerID, 0);
+            remainingDays.put(playerID, dtf.format(now));
             Bukkit.getServer().getLogger().info(event.getPlayer().getName() + " has been added to the Hashmap.");
         } else {
             Bukkit.getServer().getLogger().info(event.getPlayer().getName() + " was already added to the Hashmap.");

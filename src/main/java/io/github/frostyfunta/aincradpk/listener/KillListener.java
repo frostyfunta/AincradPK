@@ -1,5 +1,6 @@
 package io.github.frostyfunta.aincradpk.listener;
 
+import io.github.frostyfunta.aincradpk.PlayerHash;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,7 +14,7 @@ public class KillListener implements Listener {
             return;
         } else {
             Player killer = player.getKiller();
-            killer.updateStatus();
+            PlayerHash.updateStatus(killer.getUniqueId());
         }
     }
 }
